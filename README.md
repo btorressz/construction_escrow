@@ -231,7 +231,17 @@ The test suite demonstrates:
 4. 💸 Funds released (fees + insurance deducted).  
 5. ⏳ Retention held until warranty ends.  
 6. 🪪 Buyer receives NFT receipt.  
-7. ⚖️ If dispute, arbiter resolves with refund/release/split.  
+7. ⚖️ If dispute, arbiter resolves with refund/release/split.
+
+   ---
+
+
+   ## 🎯 Conclusion
+
+This program is a **robust escrow system for construction projects**.  
+It combines **milestone-based payments, oracle verification, retention, NFT receipts, and dispute resolution**.  
+
+The provided **TypeScript test** shows full setup, execution, and debugging flow on Solana Playground.  
 
 ---
 
