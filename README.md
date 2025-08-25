@@ -180,3 +180,35 @@ Fields:
 - `process_timeouts(limit)` → cron-friendly function to auto-refund expired escrows.  
 
 ---
+
+## 🧪 Tests (TypeScript)
+
+The test suite demonstrates:
+
+1. **Mint & ATA setup**  
+   - Creates SPL mint and funds buyer.  
+   - Ensures all ATAs exist.  
+
+2. **Config initialization**  
+   - Creates `Config` PDA with fees, retention, warranty.  
+
+3. **Escrow creation**  
+   - Derives PDAs (`escrow`, `vault_authority`, `project_index`).  
+   - Transfers buyer tokens into vault.  
+
+4. **Milestone flow**  
+   - Adds milestone, verifies with oracle quorum.  
+   - Releases funds, applying fees + insurance cut.  
+
+5. **Final release & retention**  
+   - Releases payment to seller.  
+   - Holds retention until warranty ends, then releases.  
+
+6. **Failure case**  
+   - Tries to release before verification → fails with expected error logs.  
+
+✅ Each step uses **assertions** and **console logs** to confirm state transitions and balances.  
+✅ Program Derived Addresses (PDAs) are derived exactly as in Rust using `seeds`.  
+✅ Errors are captured with `try/catch` and full transaction logs printed for debugging.  
+
+---
