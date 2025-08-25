@@ -127,3 +127,56 @@ Fields:
   Refund buyer if verification not done by deadline.  
 
 ---
+
+
+### ✅ Verification & Milestones
+- `verify_delivery(project_id)`  
+  Verifies delivery using M-of-N oracle signatures.  
+
+- `add_milestone(amount, evidence_hash)`  
+  Add a milestone with supporting evidence.  
+
+- `verify_milestone(milestone_id)`  
+  Verify a milestone with oracle quorum.  
+
+- `release_for_milestone(milestone_id)`  
+  Release funds for a verified milestone (fees + penalties applied).  
+
+- `release_payment()`  
+  Release all remaining funds (minus retention).  
+
+- `release_retention()`  
+  Release retention after warranty ends.  
+
+---
+
+### 🚫 Cancel & Dispute
+- `request_cancel()` → buyer/seller requests cancel.  
+- `approve_cancel()` → counterparty approves cancel → buyer refunded.  
+- `open_dispute(reason_code, evidence_hash)` → open a dispute.  
+- `resolve_dispute(outcome, seller_pct_bps)` → arbiter resolves dispute (refund, release, split).  
+
+---
+
+### 📜 Evidence & Compliance
+- `attach_evidence(hash, uri)` → attach evidence to escrow.  
+- `add_attestation(hash, uri)` → add inspector or third-party attestation.  
+
+---
+
+### 🪪 NFT Receipts
+- `init_receipt_nft()` → mint a **soulbound NFT** as buyer’s receipt.  
+- `finalize_receipt_nft(burn: bool)` → burn or unfreeze NFT at final release.  
+
+---
+
+### 🔒 Authority & Oracles
+- `update_oracles(new_oracles, new_quorum_m)` → update oracle set.  
+- `update_seller_dest(new_seller)` → update seller payout destination.  
+
+---
+
+### ⏱️ Timeout Processing
+- `process_timeouts(limit)` → cron-friendly function to auto-refund expired escrows.  
+
+---
