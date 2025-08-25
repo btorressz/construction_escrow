@@ -86,3 +86,44 @@ Fields:
 - `evidence_hash` → SHA-256 hash of delivery evidence.  
 
 ---
+
+### 🔹 ProjectIndex
+Maps `project_id → escrow PDA` for quick lookups.
+
+---
+
+### 🔹 Attestation
+Represents an external attestation (e.g., inspector note).  
+Fields:
+- `escrow` → escrow it belongs to.  
+- `attester` → signer.  
+- `hash` → SHA-256 evidence hash.  
+- `uri96` → optional URI prefix (truncated to 96 bytes).  
+- `ts` → timestamp.  
+
+---
+
+## 🛠️ Instructions (Functions)
+
+### 🔧 Config & Authority
+- `init_config` → initialize Config PDA.  
+- `update_fee_splits` → update fee % and insurance %.  
+- `transfer_market_authority_propose` → propose new authority.  
+- `transfer_market_authority_accept` → accept authority transfer.  
+
+---
+
+### 💰 Escrow Lifecycle
+- `create_escrow(project_id, buyer, seller, amount, oracles, quorum_m, price_snapshot, nft_enabled)`  
+  Creates a new escrow, transfers buyer’s tokens to a PDA vault.  
+
+- `set_deadlines(verify_by_ts, deliver_by_ts)`  
+  Set verification and delivery deadlines.  
+
+- `mark_in_progress()`  
+  Seller marks project as started.  
+
+- `expire_and_refund()`  
+  Refund buyer if verification not done by deadline.  
+
+---
