@@ -212,3 +212,26 @@ The test suite demonstrates:
 ✅ Errors are captured with `try/catch` and full transaction logs printed for debugging.  
 
 ---
+
+## 🔐 Safety Features
+
+- **Reentrancy Guard** → prevents double-spending during transfers.  
+- **Quorum Verification** → requires multiple oracle signatures.  
+- **Retention** → ensures buyer protection after delivery.  
+- **Dispute Resolution** → arbiter can refund, release, or split funds.  
+- **Timeout Refunds** → auto-refunds if deadlines expire.  
+
+---
+
+## 📊 Example Flow
+
+1. 🛒 Buyer funds escrow.  
+2. 📦 Seller marks project in progress.  
+3. 🧾 Oracles verify delivery (or milestones).  
+4. 💸 Funds released (fees + insurance deducted).  
+5. ⏳ Retention held until warranty ends.  
+6. 🪪 Buyer receives NFT receipt.  
+7. ⚖️ If dispute, arbiter resolves with refund/release/split.  
+
+---
+
